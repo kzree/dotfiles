@@ -1,0 +1,39 @@
+{
+  "lsimp": {
+    "prefix": [
+      "lsimp"
+    ],
+    "body": [
+      "import lustre",
+      "import lustre/element.{type Element}",
+      "",
+      "pub fn register() -> Result(Nil, lustre.Error) {",
+      "let component = lustre.simple(init, update, view)",
+      "lustre.register(component, \"my-component\")",
+      "}",
+      "",
+      "pub fn element() -> Element(msg) {",
+      "element.element(\"my-component\", [], [])",
+      "}",
+      "",
+      "type Model =",
+      "Int",
+      "",
+      "fn init(_) -> Model {",
+      "0",
+      "}",
+      "",
+      "type Msg =",
+      "Nil",
+      "",
+      "fn update(model: Model, msg: Msg) -> Model {",
+      "todo",
+      "}",
+      "",
+      "fn view(model: Model) -> Element(Msg) {",
+      "todo",
+      "}"
+    ],
+    "description": "Lustre simple view"
+  }
+}
