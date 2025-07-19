@@ -5,14 +5,21 @@ layout {
 
     pane size=1 borderless=true {
         plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
-            format_left  "{mode}#[fg=#89B4FA,bg=#fff,bold] {session}#[bg=#fff]"
+            format_left  "{mode} #[fg=#89B4FA,bold] {session}"
             format_center "{tabs}"
-            format_right "{command_kubectx}#[fg=#424554,bg=#fff]::{command_kubens}{datetime}"
+            format_right "{datetime}"
             format_space "#[bg=#fff]"
 
             border_enabled "false"
 
             mode_normal          "#[bg=#89B4FA] "
+            mode_locked          "#[bg=#fb4934,fg=#181818,bold] {name} "
+            mode_resize          "#[bg=#fabd2f,fg=#181818,bold] {name} "
+            mode_pane            "#[bg=#d3869b,fg=#181818,bold] {name} "
+            mode_tab             "#[bg=#83a598,fg=#181818,bold] {name} "
+            mode_scroll          "#[bg=#8ec07c,fg=#181818,bold] {name} "
+            mode_session         "#[bg=#fe8019,fg=#181818,bold] {name} "
+            mode_move            "#[bg=#a89984,fg=#181818,bold] {name} "
             mode_tmux            "#[bg=#ffc387] "
             mode_default_to_mode "tmux"
 
@@ -21,14 +28,6 @@ layout {
             tab_fullscreen_indicator "□ "
             tab_sync_indicator       "  "
             tab_floating_indicator   "󰉈 "
-
-            command_kubectx_command  "kubectx -c"
-            command_kubectx_format   "#[fg=#6C7086,bg=#fff,italic] {stdout}"
-            command_kubectx_interval "2"
-
-            command_kubens_command  "kubens -c"
-            command_kubens_format   "#[fg=#6C7086,bg=#fff]{stdout} "
-            command_kubens_interval "2"
 
             datetime          "#[fg=#9399B2,bg=#fff] {format} "
             datetime_format   "%A, %d %b %Y %H:%M"
