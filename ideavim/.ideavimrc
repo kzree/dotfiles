@@ -1,0 +1,36 @@
+let mapleader=" "
+
+:set relativenumber
+:set number
+
+nnoremap ]d :action GotoNextError<CR>
+nnoremap [d :action GotoPreviousError<CR>
+
+nnoremap ]b :action NextTab<CR>
+nnoremap [b :action PreviousTab<CR>
+
+nnoremap \| :action MoveTabRight
+
+:map <leader>lr <Action>(RenameElement)
+:map <leader>la <Action>(ShowIntentionActions)
+:map <leader>ff <Action>(GotoFile)
+:map <leader>fl <Action>(Find)
+:map <leader>fw <Action>(FindInPath)
+
+:map <leader>c <Action>(CloseEditor)
+:map <leader>C <Action>(CloseAllEditors)
+
+:map gc <Action>(CommentByLineComment)
+:map gb <Action>(CommentByBlockComment)
+
+set scrolloff=5
+set incsearch
+map Q gq
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+" Which key
+set which-key
+set timeoutlen=5000
