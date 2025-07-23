@@ -145,6 +145,11 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 
+alt-c = 'close'
+alt-q = 'exec-and-forget alacritty'
+alt-b = 'exec-and-forget open -n /Applications/Arc.app'
+alt-e = 'exec-and-forget open /System/Library/CoreServices/Finder.app'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
 
