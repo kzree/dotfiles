@@ -1,8 +1,3 @@
-# This is a demo config to showcase some of the most important commands.
-# It is meant to be changed and configured, as it is intentionally kept sparse.
-# For a (much) more advanced configuration example see my dotfiles:
-# https://github.com/FelixKratz/dotfiles
-
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 ##### Bar Appearance #####
@@ -38,11 +33,27 @@ sketchybar --default "${default[@]}"
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces.
 
+# sketchybar --add event aerospace_workspace_change
+#
+# for sid in $(aerospace list-workspaces --monitor focused --empty no); do
+#     sketchybar --add item space.$sid left \
+#         --subscribe space.$sid aerospace_workspace_change \
+#         --set space.$sid \
+#         background.color=0x44ffffff \
+#         background.corner_radius=5 \
+#         background.height=20 \
+#         background.drawing=off \
+#         label="$sid" \
+#         click_script="aerospace workspace $sid" \
+#         script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+# done
+
+##### Adding Aerospace Workspaces #####
 sketchybar --add event aerospace_workspace_change
 
-for sid in $(aerospace list-workspaces --all); do
+# Create all workspace items (hidden initially)
+for sid in $(seq 1 9); do
     sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change \
         --set space.$sid \
         background.color=0x44ffffff \
         background.corner_radius=5 \
@@ -50,27 +61,15 @@ for sid in $(aerospace list-workspaces --all); do
         background.drawing=off \
         label="$sid" \
         click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+        drawing=off
 done
 
-# SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
-# for i in "${!SPACE_ICONS[@]}"
-# do
-#   sid="$(($i+1))"
-#   space=(
-#     space="$sid"
-#     icon="${SPACE_ICONS[i]}"
-#     icon.padding_left=7
-#     icon.padding_right=7
-#     background.color=0x40ffffff
-#     background.corner_radius=5
-#     background.height=25
-#     label.drawing=off
-#     script="$PLUGIN_DIR/space.sh"
-#     click_script="yabai -m space --focus $sid"
-#   )
-#   sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
-# done
+# Add a single controller item that handles all workspace updates
+sketchybar --add item aerospace_workspaces left \
+    --subscribe aerospace_workspaces aerospace_workspace_change \
+    --set aerospace_workspaces \
+    script="$CONFIG_DIR/plugins/aerospace.sh" \
+    drawing=off
 
 ##### Adding Left Items #####
 # We add some regular items to the left side of the bar, where
@@ -104,3 +103,11 @@ sketchybar --add item clock right \
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
+
+sketchybar --trigger aerospace_workspace_change
+
+sketchybar --add item workspace_updater right \
+           --set workspace_updater \
+           update_freq=5 \
+           script="$CONFIG_DIR/plugins/aerospace.sh" \
+           drawing=off
