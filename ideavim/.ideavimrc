@@ -1,5 +1,6 @@
 let mapleader=" "
 
+:set clipboard+=unnamedplus
 :set relativenumber
 :set number
 
@@ -23,6 +24,17 @@ nnoremap \| :action MoveTabRight
 :map gc <Action>(CommentByLineComment)
 :map gb <Action>(CommentByBlockComment)
 
+" Bookmarks
+
+:map <leader>bm <Action>(ShowBookmarks)
+:map <leader>bt <Action>(ToggleBookmark)
+
+" Fuzzy finder
+:map <Leader>pf <action>(com.mituuz.fuzzier.Fuzzier)
+:map <Leader>mf <action>(com.mituuz.fuzzier.FuzzyMover)
+:map <Leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS)
+":map <Leader>ff <action>(com.mituuz.fuzzier.FuzzyGrep)
+
 set scrolloff=5
 set incsearch
 map Q gq
@@ -31,6 +43,26 @@ map Q gq
 Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
 Plug 'tpope/vim-commentary'
+" NERDTree file explorer
+Plug 'preservim/nerdtree'
+
+:map <leader>e :NERDTreeToggle<CR>
+
 " Which key
 set which-key
 set timeoutlen=5000
+
+" Harpoon
+nmap <leader>hm <action>(HarpoonerToggleQuickMenu)
+
+nmap <leader>ha <action>(HarpoonerToggleFile)
+
+nmap <M-j> <action>(HarpoonerOpenFile0)
+nmap <M-k> <action>(HarpoonerOpenFile1)
+nmap <M-l> <action>(HarpoonerOpenFile2)
+nmap <M-;> <action>(HarpoonerOpenFile3)
+
+nmap <leader>hn <action>(HarpoonerNextFileAction)
+nmap <leader>hp <action>(HarpoonerPreviousFileAction)
+
+nmap <leader>hc <action>(HarpoonerClearMenu)
