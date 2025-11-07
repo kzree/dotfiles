@@ -29,7 +29,7 @@ inner.horizontal = 8
 inner.vertical = 8
 outer.left = 8
 outer.bottom = 8
-outer.top = [{ monitor.built-in = 8 }, 48]
+outer.top = [{ monitor.built-in = 8 }, 8]
 outer.right = 8
 
 [mode.main.binding]
@@ -72,7 +72,7 @@ alt-shift-9 = 'move-node-to-workspace 9'
 
 alt-c = 'close'
 alt-q = 'exec-and-forget alacritty'
-alt-b = 'exec-and-forget open -n /Applications/Arc.app'
+alt-b = 'exec-and-forget open -n /Applications/Google\ Chrome.app'
 alt-e = 'exec-and-forget open /System/Library/CoreServices/Finder.app'
 
 alt-shift-semicolon = 'mode service'
