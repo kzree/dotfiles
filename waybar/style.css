@@ -63,7 +63,8 @@
 }
 
 #battery {
-  color: #a6d189;
+  color: #e5c890;
+  padding-right: 1.5rem;
 }
 
 #battery.charging {
