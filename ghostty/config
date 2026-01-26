@@ -7,3 +7,6 @@ font-feature=-calt, -liga, -dlig
 quit-after-last-window-closed=true
 
 gtk-single-instance = false
+
+confirm-close-surface=false
+

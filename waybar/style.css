@@ -5,15 +5,15 @@
 }
 
 #waybar {
-  /* background: #2b2e37; */
   background: #202020;
   font-size: 1em;
   color: #c6d0f5;
+  border-radius: 4px;
 }
 
 #workspaces {
   border-radius: 5px;
-  padding: 0.35rem 0.5rem;
+  padding: 0.35rem 0.5rem 0.35rem 1rem;
   font-size: 1em;
 }
 
@@ -36,6 +36,7 @@
 }
 
 #custom-music,
+#custom-notification,
 #tray,
 #backlight,
 #clock,
@@ -55,6 +56,10 @@
 
 #memory {
   border-radius: 0px 5px 5px 0px;
+}
+
+#network {
+  padding-right: 0;
 }
 
 #clock {
