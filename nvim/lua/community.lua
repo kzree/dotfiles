@@ -11,11 +11,10 @@ return {
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.gleam" },
   { import = "astrocommunity.pack.ansible" },
-  { import = "astrocommunity.completion.avante-nvim" },
+  { import = "astrocommunity.ai.avante-nvim" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.java" },
-  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.colorscheme.gruvbox-baby" },
@@ -28,19 +27,5 @@ return {
   { import = "astrocommunity.colorscheme.dracula-nvim" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
   { import = "astrocommunity.search.grug-far-nvim" },
-  {
-    "onedarkpro.nvim",
-    opts = {
-      styles = {
-        keywords = "italic",
-        functions = "bold",
-      },
-      override = function(c)
-        return {
-          LspInlayHint = { bg = c.editor.background, fg = c.editorInlayHint.foreground },
-        }
-      end,
-    },
-  },
   -- import/override with your plugins folder
 }
