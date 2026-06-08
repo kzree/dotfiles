@@ -1,5 +1,6 @@
 vim.api.nvim_set_keymap("n", "<leader>tcd", ":Copilot disable<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>tce", ":Copilot enable<CR>", { noremap = true, silent = true })
+vim.opt.scrolloff = 5
 
 return {
   {
